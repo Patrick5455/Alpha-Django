@@ -3,8 +3,12 @@ install django - python3 -m pip install django
 Start a project - django-admin startproject project_name
 # manage.py - used to manage django projects
 run django server - python manage.py runserver
-# in django we structure our projects into apps
+
+# in django we structure our projects into apps. A django app is a python package intended foe use in your project. A simple django projects contains multiple apps. Apps are reusable
+# structuring your codes into apps keeps your code modular.
+
 create a new app - python manage.py startapp name_of_app
 # after creating a new app, you add the 'app_name' to INSTALLED_APPS in settings.py
 # view handles request of our webpage
+# after adding a function or class to views.py for a particular app to handle a particular request, you have to add the urls for that function/class to urls.py
 

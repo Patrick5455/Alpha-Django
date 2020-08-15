@@ -16,11 +16,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 # import welcome function from views in website app
-from website.views import welcome
+from website.views import welcome, date, about
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # the first argument specifies the url 
-    # and the second argument is the actual view function
-    path('welcome.html', welcome)
+    # and the second argument is the actual view functionb
+    #path('welcome.html', welcome),
+
+    # make welcome.html show as the index (default) page
+    path('', welcome),
+    path('date', date),
+    path('about', about)
+
+
+
 ]
