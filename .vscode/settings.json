@@ -1,5 +1,6 @@
 {
     "python.venvFolders": [
         "/home/patrick/Documents/Semicolon/Projects/learnningPaths/django_flask_learning_path/pluralsight_django/venv_beginner/bin/activate"
-    ]
+    ],
+    "git.ignoreLimitWarning": true
 }
