@@ -1,0 +1,5 @@
+instal django - python3 -m pip install django
+Start a project - django-admin startproject project_name
+manage.py - used to manage django projects
+run django server - python manage.py runserver
+
