@@ -37,6 +37,30 @@ e.g class Meeting (models.Model):
     title = models.Charfield(max_length=200)
     date = models.DateField()
 
+# changes to the database are effected using - python manage.py makemigrations
+# this command generates a migration file stored under the migrations folder
+
+# we can also run the migration to see the SQL query as - python manage.py sqlmigrate name_of_app number_of_migration_file/full_name_of_migration_file
+
+#now to actually run the sql and create the table in the sql - python manage.py migrate
+# this would run all current waiting migrations
+
+#to see all tables use - python manage.py dbshell, then use -  .tables
+
+
+Admin Interface
+- Create and edit model data e.g create new meetings (row)
+- To use the admin, we have to register model with admin site and configure a superuser account to be able to login.
+
+- to configure admin do the ffg:
+1. import your model e.g from .models import Meeting
+2. reister the model e.g admin.site.register(Meeting)
+3. start your server - python manage.py runserver, it would bring a login page.
+4. to create a user account - python manage.py createsuperuser
+
+
+
+
 
 
 
