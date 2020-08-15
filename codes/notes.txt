@@ -5,4 +5,6 @@ Start a project - django-admin startproject project_name
 run django server - python manage.py runserver
 # in django we structure our projects into apps
 create a new app - python manage.py startapp name_of_app
+# after creating a new app, you add the 'app_name' to INSTALLED_APPS in settings.py
+# view handles request of our webpage
 
