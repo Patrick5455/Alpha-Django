@@ -12,3 +12,31 @@ create a new app - python manage.py startapp name_of_app
 # view handles request of our webpage
 # after adding a function or class to views.py for a particular app to handle a particular request, you have to add the urls for that function/class to urls.py
 
+
+Setting up a data model
+- Create django model classes
+- Create and run migrations
+- Edit data with admin interface
+
+# Models are Python classes
+# Persistence of model means if we stop the django server after stroing an object, we would still meet the stored object,
+ 
+# In django a model class is mapped to a database table.
+e.g A model class called user is mapped to a databse called user, a meeting class to a meeting table
+
+# each object of the created class cna be stored as a row in the class corresponding table
+
+# changes to our database structure is made through `migrations (a django auto-generated python script (but not always auto-generated))`
+
+show pending migrations - python manage.py showmigrations
+perform migrations - python manage.py migrate
+make connections with the database (db sqlite3) python manage.py dbshell
+
+# model classes are written in models.py All moodel class inherits from model.Model
+e.g class Meeting (models.Model):
+    title = models.Charfield(max_length=200)
+    date = models.DateField()
+
+
+
+
