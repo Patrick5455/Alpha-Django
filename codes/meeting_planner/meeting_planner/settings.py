@@ -122,10 +122,10 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-#syntax highlighting 
-"files.associations": {
-    "**/*.html": "html",
-    "**/templates/**/*.html": "django-html",
-    "**/templates/**/*": "django-txt",
-    "**/requirements{/**,*}.{txt,in}": "pip-requirements"
-},
+# #syntax highlighting 
+# "files.associations": {
+#     "**/*.html": "html",
+#     "**/templates/**/*.html": "django-html",
+#     "**/templates/**/*": "django-txt",
+#     "**/requirements{/**,*}.{txt,in}": "pip-requirements"
+# }

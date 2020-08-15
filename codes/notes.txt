@@ -68,6 +68,12 @@ Admin Interface
 e.g 
 
 2. make your migation again - python manage.py makemigrations and the python manage.py migrate
+# this resolves the error. 
+
+OR
+
+# delete all previous migrations file and database 
+# the downside to this is that we would lose our data in the deleted database. We would also the created superuser
 
 
 
