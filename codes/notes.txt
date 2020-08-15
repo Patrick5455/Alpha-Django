@@ -37,12 +37,12 @@ e.g class Meeting (models.Model):
     title = models.Charfield(max_length=200)
     date = models.DateField()
 
-# changes to the database are effected using - python manage.py makemigrations
+# generate migration script to see what django did - python manage.py makemigrations
 # this command generates a migration file stored under the migrations folder
 
 # we can also run the migration to see the SQL query as - python manage.py sqlmigrate name_of_app number_of_migration_file/full_name_of_migration_file
 
-#now to actually run the sql and create the table in the sql - python manage.py migrate
+# to effect the changes we made in our model - python manage.py migrate
 # this would run all current waiting migrations
 
 #to see all tables use - python manage.py dbshell, then use -  .tables
@@ -57,6 +57,19 @@ Admin Interface
 2. reister the model e.g admin.site.register(Meeting)
 3. start your server - python manage.py runserver, it would bring a login page.
 4. to create a user account - python manage.py createsuperuser
+5. add new rows in the created table from the admin dashboard
+
+> Django does not allow empty fields by default.. hence if we try to add new columns (model class attributes) after creating rows and then try making migrations, we would get an warning from django..
+
+# To resove this, do the following:
+
+1. add default values in the newlw created columns so formerly created rows can take the defult values for these new columns
+
+e.g 
+
+2. make your migation again - python manage.py makemigrations and the python manage.py migrate
+
+
 
 
 
