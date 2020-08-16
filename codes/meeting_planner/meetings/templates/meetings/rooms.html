@@ -1,11 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>All Rooms</title>
-</head>
-<body>
+{% extends "base.html" %}
 
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>All Rooms</title>-->
+<!--</head>-->
+<!--<body>-->
+
+{% block title%} Rooms {% endblock %}
+
+{% block content %}
 <h2>All Rooms</h2>
 
 <ul>
@@ -16,5 +21,8 @@
     {% endfor %}
 </ul>
 
-</body>
-</html>
+{% endblock %}
+
+
+<!--</body>-->
+<!--</html>-->

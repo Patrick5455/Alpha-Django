@@ -1,15 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Room {{room.name}} details</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Room {{room.name}} details</title>-->
+<!--</head>-->
+<!--<body>-->
+
+
+{% block title%} Room {{room.name}} details {% endblock %}
+
+{% block content %}
 <P>Room details are: </P>
    <P> Room name: {{room.name}}</p>
    <P> Room Floor: {{room.floor_number}} </p>
 <p>Room Number: {{room.room_number}}</P>
 
+{% endblock %}
 
-</body>
-</html>
+<!--</body>-->
+<!--</html>-->

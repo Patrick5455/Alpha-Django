@@ -1,11 +1,15 @@
-<!DOCTYPE html>
+{% extends "base.html"%}
 
-<html>
-<head>
-<title>Meeting: {{meeting.title}}</title>
-</head>
+<!--<!DOCTYPE html>-->
 
-<body>
+<!--<html>-->
+<!--<head>-->
+<!--<title>Meeting: {{meeting.title}}</title>-->
+<!--</head>-->
+
+<!--<body>-->
+
+{% block content %}
 <h1>{{meeting.title}}</h1>
 <p>
 This meeting has been scheduled on {{meeting.date}}, at 
@@ -15,7 +19,7 @@ This meeting has been scheduled on {{meeting.date}}, at
 <p>
  <a href="{% url 'welcome' %}">Home Page</a>
 </p>
+{% endblock %}
+<!--</body>-->
 
-</body>
-
-</html>
+<!--</html>-->
