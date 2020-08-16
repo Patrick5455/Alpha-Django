@@ -18,6 +18,30 @@ on
 <p>
 There are currently {{num_meetings}} meetings in the database
 </p>
-  
+
+<h2>List of Meetings</h2>
+<ul>
+    {% for meeting in meetings %}
+    <Li>
+<!--        <a href="/meetings/{{meeting.id}}">{{meeting.title}}</a>-->
+
+        <a href="{% url 'detail' meeting.id %}">{{ meeting.title }}</a>
+    </Li>
+    {% endfor %}
+</ul>
+
+
+<!--<h2>All Rooms</h2>-->
+
+<!--<ul>-->
+<!--    {% for room in rooms%}-->
+<!--    <li>-->
+<!--        {{room.name}}-->
+<!--    </li>-->
+<!--    {% endfor %}-->
+<!--</ul>-->
+
+
+
 </body>
 </html>

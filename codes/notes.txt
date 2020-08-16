@@ -127,6 +127,14 @@ get_object_or_404(Model_name, id)
 
 
 URLs and Link Building
+- Link building means generating url for links through url mappings using Named urls
+- we use the `url` tag as a placeholder/variable to dynamically generate url..
+e.g 
+
+this works -  <a href="{% url 'detail' meeting.id %}">{{ meeting.title }}</a>
+for  - path('meetings/<int:id>', detail, name="detail"),
+
+ 
 
 
 
