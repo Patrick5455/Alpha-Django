@@ -1,0 +1,150 @@
+# github repo - codesensei-courses/django_getting_started
+install django - python3 -m pip install django
+Start a project - django-admin startproject project_name
+# manage.py - used to manage django projects
+run django server - python manage.py runserver
+
+# in django we structure our projects into apps. A django app is a python package intended foe use in your project. A simple django projects contains multiple apps. Apps are reusable
+# structuring your codes into apps keeps your code modular.
+
+create a new app - python manage.py startapp name_of_app
+# after creating a new app, you add the 'app_name' to INSTALLED_APPS in settings.py
+# view handles request of our webpage
+# after adding a function or class to views.py for a particular app to handle a particular request, you have to add the urls for that function/class to urls.py
+
+
+Setting up a data model
+- Create django model classes
+- Create and run migrations
+- Edit data with admin interface
+
+# Models are Python classes
+# Persistence of model means if we stop the django server after stroing an object, we would still meet the stored object,
+ 
+# In django a model class is mapped to a database table.
+e.g A model class called user is mapped to a databse called user, a meeting class to a meeting table
+
+# each object of the created class cna be stored as a row in the class corresponding table
+
+# changes to our database structure is made through `migrations (a django auto-generated python script (but not always auto-generated))`
+
+show pending migrations - python manage.py showmigrations
+perform migrations - python manage.py migrate
+make connections with the database (db sqlite3) python manage.py dbshell
+
+# model classes are written in models.py All moodel class inherits from model.Model
+e.g class Meeting (models.Model):
+    title = models.Charfield(max_length=200)
+    date = models.DateField()
+
+# generate migration script to see what django did - python manage.py makemigrations
+# this command generates a migration file stored under the migrations folder
+
+# we can also run the migration to see the SQL query as - python manage.py sqlmigrate name_of_app number_of_migration_file/full_name_of_migration_file
+
+# to effect the changes we made in our model - python manage.py migrate
+# this would run all current waiting migrations
+
+#to see all tables use - python manage.py dbshell, then use -  .tables
+
+
+Admin Interface
+- Create and edit model data e.g create new meetings (row)
+- To use the admin, we have to register model with admin site and configure a superuser account to be able to login.
+
+- to configure admin do the ffg:
+1. import your model e.g from .models import Meeting
+2. reister the model e.g admin.site.register(Meeting)
+3. start your server - python manage.py runserver, it would bring a login page.
+4. to create a user account - python manage.py createsuperuser
+5. add new rows in the created table from the admin dashboard
+
+> Django does not allow empty fields by default.. hence if we try to add new columns (model class attributes) after creating rows and then try making migrations, we would get an warning from django..
+
+# To resove this, do the following:
+
+1. add default values in the newlw created columns so formerly created rows can take the defult values for these new columns
+
+e.g 
+
+2. make your migation again - python manage.py makemigrations and the python manage.py migrate
+# this resolves the error. 
+
+OR
+
+# delete all previous migrations file and database 
+# the downside to this is that we would lose our data in the deleted database. We would also the created superuser. Hence we would have to run migrations again to create new migrations file 
+
+
+Templates
+
+> Templates are components that display data to the user
+
+> We use it to create html file
+
+> We can use it to add placehoders for variables e.g {{New Year Message}}
+
+> Add logic: if, or, etc.
+
+# A templates folder contains html files related to a specific app.
+# We add templates to an app by creaating a folder callsed templates and it helps to add another file under with the name of the app e.g website/templates/website. THis helps in differentiating the templates of different app. 
+
+# we then add html files to the template folder and then render the html page in the views.py
+
+
+# to add a template page, we return a render page:
+# it will take as first argument, request and second argument, 
+# the name of the page and it's relativepath
+
+e.g 
+
+def welcome(request):
+	return render (request, "website/index.html")
+
+# to use django templating function, you use {{}} in the html page with a varible name inside e.g
+{{message}}
+# this variable name can then be used to dynamically pass in content by adding a template context (a dictionary in the returned render argument, where the variable name is the key and the content is the value)
+e.g 
+
+def welcome(request):
+	return render (request, "website/index.html". {"message":"This is a new message ti test Django templates"})
+
+
+Objects Feature
+> All models have the feature objects with which CRUD operatons are performed.
+
+The followin are examples of the use of the Objects feature...
+
+Model_name.object.get(id)
+Model_name.Objects.all()
+
+# to handle errors alongside CRUD operation use:
+
+from django.shortcuts import get_object_or_404
+
+get_object_or_404(Model_name, id)
+
+
+
+URLs and Link Building
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
