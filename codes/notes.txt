@@ -73,7 +73,72 @@ e.g
 OR
 
 # delete all previous migrations file and database 
-# the downside to this is that we would lose our data in the deleted database. We would also the created superuser
+# the downside to this is that we would lose our data in the deleted database. We would also the created superuser. Hence we would have to run migrations again to create new migrations file 
+
+
+Templates
+
+> Templates are components that display data to the user
+
+> We use it to create html file
+
+> We can use it to add placehoders for variables e.g {{New Year Message}}
+
+> Add logic: if, or, etc.
+
+# A templates folder contains html files related to a specific app.
+# We add templates to an app by creaating a folder callsed templates and it helps to add another file under with the name of the app e.g website/templates/website. THis helps in differentiating the templates of different app. 
+
+# we then add html files to the template folder and then render the html page in the views.py
+
+
+# to add a template page, we return a render page:
+# it will take as first argument, request and second argument, 
+# the name of the page and it's relativepath
+
+e.g 
+
+def welcome(request):
+	return render (request, "website/index.html")
+
+# to use django templating function, you use {{}} in the html page with a varible name inside e.g
+{{message}}
+# this variable name can then be used to dynamically pass in content by adding a template context (a dictionary in the returned render argument, where the variable name is the key and the content is the value)
+e.g 
+
+def welcome(request):
+	return render (request, "website/index.html". {"message":"This is a new message ti test Django templates"})
+
+
+Objects Feature
+> All models have the feature objects with which CRUD operatons are performed.
+
+The followin are examples of the use of the Objects feature...
+
+Model_name.object.get(id)
+Model_name.Objects.all()
+
+# to handle errors alongside CRUD operation use:
+
+from django.shortcuts import get_object_or_404
+
+get_object_or_404(Model_name, id)
+
+
+
+URLs and Link Building
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
