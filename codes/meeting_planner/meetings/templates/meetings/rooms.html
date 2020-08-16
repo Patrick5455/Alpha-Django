@@ -11,7 +11,7 @@
 <ul>
     {% for room in rooms%}
     <li>
-        {{room.name}}
+        <a href="{% url 'room_detail' room.id%}">{{room.name}}</a>
     </li>
     {% endfor %}
 </ul>
