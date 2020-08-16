@@ -15,7 +15,7 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 # import welcome function from views in website app
 from website.views import welcome, date, about
 from meetings.views import detail, show_room, show_room_detail
@@ -32,8 +32,11 @@ urlpatterns = [
     path('about', about),
     # name="detail" is used to name our url for url link building
     # check welcome.html
-    path('meetings/<int:id>', detail, name="detail"),
-    path("rooms", show_room),
-    path("rooms/<int:id>", show_room_detail, name="room_detail"),
+   # path('meetings/<int:id>', detail, name="detail"),
+   # path("rooms", show_room, name="show_room"),
+   # path("rooms/<int:id>", show_room_detail, name="room_detail"),
+
+# serves as parent url for all meetings urls
+    path("meetings/", include("meetings.urls"))
 
 ]

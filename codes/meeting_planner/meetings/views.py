@@ -25,9 +25,12 @@ def detail(request, id):
 
 def show_room(request):
     # rooms = Room.objects.all()
-    return render(request, "meetings/rooms.html", {"rooms": Room.objects.all})
+    return render(request, "meetings/rooms.html", {"rooms": Room.objects.all()})
 
 
 def show_room_detail(request, id):
     room = get_object_or_404(Room, pk=id)
     return render(request, "meetings/this_room.html", {"room": room})
+
+def new(request):
+    return render(request, "meetings/new.html")

@@ -1,10 +1,14 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
+<!--<!DOCTYPE html>-->
 
-<html>
-<head>
-<title> This is my first Django Application</title>
-</head>
-<body>
+<!--<html>-->
+<!--<head>-->
+<!--<title> This is my first Django Application</title>-->
+<!--&lt;!&ndash;    <link rel="stylesheet" href="/static/website/style.css">&ndash;&gt;-->
+<!--        <link rel="stylesheet" href="{% static 'website/style.css' %}">-->
+<!--</head>-->
+<!--<body>-->
+
 <h1>Welcome to the Meeting Planner</h1>
 <p>
 This is the demo application for the course
@@ -12,7 +16,8 @@ This is the demo application for the course
 on 
 <a href="https://www.pluralsight.com">pluralsight</a>
 <p>
-
+    
+  <img src="{% static 'website/ds.jpg' %}", width="100px">
 {{message}}
 
 <p>
@@ -41,7 +46,7 @@ There are currently {{num_meetings}} meetings in the database
 <!--    {% endfor %}-->
 <!--</ul>-->
 
+<a href="{% url 'show_room'%}">Check Rooms</a>
 
-
-</body>
-</html>
+<!--</body>-->
+<!--</html>-->
