@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{%load static %}
 <!--<!DOCTYPE html>-->
 
 <!--<html>-->
@@ -9,6 +10,10 @@
 <!--</head>-->
 <!--<body>-->
 
+
+{% block title%}Welcome{% endblock %}
+
+{% block content %}
 <h1>Welcome to the Meeting Planner</h1>
 <p>
 This is the demo application for the course
@@ -47,6 +52,8 @@ There are currently {{num_meetings}} meetings in the database
 <!--</ul>-->
 
 <a href="{% url 'show_room'%}">Check Rooms</a>
+
+{% endblock %}
 
 <!--</body>-->
 <!--</html>-->
