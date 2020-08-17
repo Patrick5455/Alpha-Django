@@ -1,10 +1,19 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
+<!--{%load static %}-->
+<!--<!DOCTYPE html>-->
 
-<html>
-<head>
-<title> This is my first Django Application</title>
-</head>
-<body>
+<!--<html>-->
+<!--<head>-->
+<!--<title> This is my first Django Application</title>-->
+<!--&lt;!&ndash;    <link rel="stylesheet" href="/static/website/style.css">&ndash;&gt;-->
+<!--        <link rel="stylesheet" href="{% static 'website/style.css' %}">-->
+<!--</head>-->
+<!--<body>-->
+
+
+{% block title%}Welcome{% endblock %}
+
+{% block content %}
 <h1>Welcome to the Meeting Planner</h1>
 <p>
 This is the demo application for the course
@@ -12,12 +21,39 @@ This is the demo application for the course
 on 
 <a href="https://www.pluralsight.com">pluralsight</a>
 <p>
-
+    
+  <img src="{% static 'website/ds.jpg' %}", width="100px">
 {{message}}
 
 <p>
 There are currently {{num_meetings}} meetings in the database
 </p>
-  
-</body>
-</html>
+
+<h2>List of Meetings</h2>
+<ul>
+    {% for meeting in meetings %}
+    <Li>
+<!--        <a href="/meetings/{{meeting.id}}">{{meeting.title}}</a>-->
+
+        <a href="{% url 'detail' meeting.id %}">{{ meeting.title }}</a>
+    </Li>
+    {% endfor %}
+</ul>
+
+
+<!--<h2>All Rooms</h2>-->
+
+<!--<ul>-->
+<!--    {% for room in rooms%}-->
+<!--    <li>-->
+<!--        {{room.name}}-->
+<!--    </li>-->
+<!--    {% endfor %}-->
+<!--</ul>-->
+
+<a href="{% url 'show_room'%}">Check Rooms</a>
+
+{% endblock %}
+
+<!--</body>-->
+<!--</html>-->
